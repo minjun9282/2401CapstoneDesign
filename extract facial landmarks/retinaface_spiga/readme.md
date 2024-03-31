@@ -2,9 +2,12 @@ face detection: Retinaface<br>
 facial landmarks 및 head position 추출: SPIGA<br>
 
 <br>
-preprocess_vids_and_extract_frames의 결과로 생성된 프레임 폴더를 input 폴더로 설정<br>
-retinaface_demo.py와 spiga_demo.py의 input 폴더에 경로 설정 해줘야 함.<br>
+preprocess_vids_and_extract_frames의 결과로 생성된 프레임 폴더를 retinaface_spiga에 복사하여 input 폴더로 설정<br>
+retinaface_demo.py와 spiga_demo.py의 input 폴더에 경로 설정 위에 복사한걸로 바꿔줘야 함.<br>
 실행순서: retinaface_demo.py 실행 -> spiga_demo.py 실행<br>
+결과물: retinaface_demo.py -> bbox_data(annotation 폴더), spiga_demo.py -> processed_image(inference 결과물)<br>
+
+추후에는 inference 결과물을 이미지로 저장하지 않고 값만 받아서 사용할 것임.<br>
 
 <br>
 Retinaface 실행시 주의<br>
