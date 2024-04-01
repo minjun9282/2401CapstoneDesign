@@ -20,4 +20,5 @@ Retinaface 실행시 주의<br>
 Spiga 실행시 주의<br>
 - dataset으로 300wpublic을 사용했음.<br>
 - models/weights 폴더를 만든 후 spiga_300wpublic.pt 파일을 추가해줘야함.<br>
-= https://drive.google.com/drive/folders/1olrkoiDNK_NUCscaG9BbO3qsussbDi7I 여기서 다운 가능.<br>
+- 모델 weights 불러오는데 계속 오류가 발생한다면 아래의 링크에서 직접 다운 받은 후 models/weights 폴더에 넣기
+- https://drive.google.com/drive/folders/1olrkoiDNK_NUCscaG9BbO3qsussbDi7I
