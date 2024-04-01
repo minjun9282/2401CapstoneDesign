@@ -10,6 +10,10 @@
 # 조건
 input_videos는 동일한 가수의 동일한 음악으로 이루어진 무대영상이어야 합니다.(29.97fps, 44100Hz)
 
+# 주의
+moviepy를 설치해야 합니다.
+input_videos, output_videos, output_audios, output_frames 폴더가 존재해야 합니다.(추후 폴더 생성하도록 수정 예정)
+
  
 # 디렉토리 구조
 ```
