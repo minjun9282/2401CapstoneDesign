@@ -15,7 +15,7 @@ print(f"Using device: {device}")
 dataset = '300wpublic'
 processor = SPIGAFramework(ModelConfig(dataset))
 
-def process_and_save_features(image_path, bbox_path, output_path, processor, min_size=20000): #일단 min_size = 20000으로 두고 모든 얼굴 크기에 대해서 추출
+def process_and_save_features(image_path, bbox_path, output_path, processor, min_size=20000): #일단 min_size = 20000으로 두고 모든 얼굴 크기에 대해서 추출(1280*720 기준)
     # 이미지와 bbox 정보 로드
     image = cv2.imread(image_path)
     height, width, _ = image.shape
@@ -64,10 +64,7 @@ def process_and_save_features(image_path, bbox_path, output_path, processor, min
             json.dump(landmarks_data, outfile, indent=4)
     else:
         print(f"{image_path}에서 조건에 맞는 bbox가 없습니다.")
-
-# 기타 코드 (예: 폴더 설정, 서브폴더 탐색 등)는 기존과 동일하게 유지합니다.
-
-
+        
 # 입력 및 출력 폴더 설정
 input_folder = 'output_frames'
 bbox_data_folder = 'bbox_data'
