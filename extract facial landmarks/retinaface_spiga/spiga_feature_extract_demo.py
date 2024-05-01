@@ -15,7 +15,7 @@ print(f"Using device: {device}")
 dataset = '300wpublic'
 processor = SPIGAFramework(ModelConfig(dataset))
 
-def process_and_save_features(image_path, bbox_path, output_path, processor, min_size=20000): #일단 min_size = 20000으로 두고 모든 얼굴 크기에 대해서 추출(1280*720 기준)
+def process_and_save_features(image_path, bbox_path, output_path, processor, min_size=45000): #일단 min_size = 45000으로 두고 모든 얼굴 크기에 대해서 추출(1920*1080 기준)
     # 이미지와 bbox 정보 로드
     image = cv2.imread(image_path)
     height, width, _ = image.shape
