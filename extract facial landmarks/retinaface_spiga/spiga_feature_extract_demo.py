@@ -42,7 +42,7 @@ def process_and_save_features(image_path, bbox_path, output_path, processor, min
         bbox_center = np.array([(x_min + x_max) / 2, (y_min + y_max) / 2])
         distance = np.linalg.norm(bbox_center - image_center)
 
-        if distance < min_distance_to_center:
+        if distance < min_distance_to_center and distance < 550: #550은 1920*1080 사이즈의 이미지에서 이미지의 중심~한쪽 꼭짓점까지 길이의 절반 길이임.
             selected_bbox = (x_min, y_min, x_max, y_max)
             min_distance_to_center = distance
 
