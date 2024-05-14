@@ -15,7 +15,7 @@ print(f"Using device: {device}")
 dataset = '300wpublic'
 processor = SPIGAFramework(ModelConfig(dataset))
 
-def process_and_save_features(image_path, bbox_path, output_path, processor, min_size=45000): #일단 min_size = 45000으로 두고 모든 얼굴 크기에 대해서 추출(1920*1080 기준)
+def process_and_save_features(image_path, bbox_path, output_path, processor, min_size=15000, max_yaw): #일단 min_size = 15000으로 두고 모든 얼굴 크기에 대해서 추출(1920*1080 기준)
     # 이미지와 bbox 정보 로드
     image = cv2.imread(image_path)
     height, width, _ = image.shape
@@ -42,7 +42,7 @@ def process_and_save_features(image_path, bbox_path, output_path, processor, min
         bbox_center = np.array([(x_min + x_max) / 2, (y_min + y_max) / 2])
         distance = np.linalg.norm(bbox_center - image_center)
 
-        if distance < min_distance_to_center and distance < 550: #550은 1920*1080 사이즈의 이미지에서 이미지의 중심~한쪽 꼭짓점까지 길이의 절반 길이임.
+        if distance < min_distance_to_center and distance < 300: #300은 1920*1080 사이즈의 이미지에서 이미지의 중심~한쪽 꼭짓점까지 길이의 절반 길이임.
             selected_bbox = (x_min, y_min, x_max, y_max)
             min_distance_to_center = distance
 
