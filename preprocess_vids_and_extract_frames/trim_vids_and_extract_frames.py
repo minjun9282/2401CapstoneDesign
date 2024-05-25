@@ -4,8 +4,8 @@ import os
 import numpy as np
 from concurrent.futures import ProcessPoolExecutor
 
-# 병렬 처리를 위해 비디오 처리를 수행하는 함수를 개별적으로 정의
-def process_video(video_path, output_frame_path, base_video_frames, front_adjustment, resize_size, fps=30):
+# 비디오 처리를 수행하는 함수를 정의
+def process_video(video_path, output_frame_path, base_video_frames, front_adjustment, resize_size, fps):
     video_name = os.path.splitext(os.path.basename(video_path))[0]
     frames_folder = os.path.join(output_frame_path, video_name + '_frames')
     os.makedirs(frames_folder, exist_ok=True)
@@ -26,22 +26,23 @@ def process_video(video_path, output_frame_path, base_video_frames, front_adjust
 
             frame_image = Image.fromarray(frame).resize(resize_size, Image.Resampling.LANCZOS)
             frame_path = os.path.join(frames_folder, f"frame_{i:05d}.jpg")
-            frame_image.save(frame_path, 'JPEG', quality=70)
+            frame_image.save(frame_path, 'JPEG', quality=95)
 
-# 주 함수
-def trim_and_extract_frames_parallel(input_video_paths, output_frame_paths, front_adjustment_lst, resize_size, fps=30):
+def trim_and_extract_frames_parallel(input_video_paths, output_frame_paths, front_adjustment_lst, back_adjustment_lst, resize_size, fps=30):
     video_files = [f for f in os.listdir(input_video_paths) if f.endswith('.mp4')]
     video_paths = [os.path.join(input_video_paths, f) for f in video_files]
-    front_adjustment_lst = [0] + front_adjustment_lst #비교 영상이 기준 영상에 비해 얼마나 지연됐는가에 대한 변수
 
     base_video = VideoFileClip(video_paths[0])
-    base_video_frames = int(base_video.duration * fps)
+    base_video_frames = int((base_video.duration - back_adjustment_lst[0]) * fps)
 
     # 병렬 처리를 위해 ProcessPoolExecutor 사용
     with ProcessPoolExecutor() as executor:
-        futures = [executor.submit(process_video, video_path, output_frame_paths, base_video_frames, front_adjustment_lst[idx], resize_size, fps)
-                   for idx, video_path in enumerate(video_paths)]
+        futures = [
+            executor.submit(process_video, video_path, output_frame_paths, base_video_frames, front_adjustment_lst[idx], resize_size, fps)
+            for idx, video_path in enumerate(video_paths)
+        ]
 
         # 모든 작업이 완료될 때까지 기다림
         for future in futures:
             future.result()  # 에러가 발생하면 여기서 발생함
+
