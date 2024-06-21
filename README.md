@@ -1,4 +1,4 @@
-# 프로젝트명: 다중 무대 영상의 시각적 특징을 활용한 자동 교차편집 시스템
+# 다중 무대 영상의 시각적 특징을 활용한 자동 교차편집 시스템
 # 프로젝트 소개
 - 전문적인 편집 기술과 긴 편집 시간의 노력 없어도 다수의 무대 영상을 활용하여 자연스러운 교차편집 영상을 만들 수 있는 프로젝트입니다. <br>
 
@@ -50,6 +50,8 @@
 
 ```
 # 데모 영상
-
+<p style="text-align: center;">
+<iframe autoplay="autoplay" style="displsy:block; width:100%; height:450px aspect-ratio:16:9" src="https://drive.google.com/drive/folders/1uiYlu6Nvfont8vSe_Zlp0IDtdWysA9_e" ></iframe>
+</p>
 
 <br><br>
