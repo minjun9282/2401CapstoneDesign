@@ -50,8 +50,8 @@
 
 ```
 # 데모 영상
-<p style="text-align: center;">
-<iframe autoplay="autoplay" style="displsy:block; width:100%; height:450px aspect-ratio:16:9" src="https://drive.google.com/drive/folders/1uiYlu6Nvfont8vSe_Zlp0IDtdWysA9_e" ></iframe>
-</p>
+aespa - supernova: https://drive.google.com/drive/folders/1uiYlu6Nvfont8vSe_Zlp0IDtdWysA9_e
+newjeans - how sweet: https://drive.google.com/drive/folders/1uiYlu6Nvfont8vSe_Zlp0IDtdWysA9_e
+ive - heya: https://drive.google.com/drive/folders/1uiYlu6Nvfont8vSe_Zlp0IDtdWysA9_e
 
 <br><br>
